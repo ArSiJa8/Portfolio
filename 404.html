@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Page not found — 404</title>
+<style>
+  :root{
+    --bg: #1b1b1e;
+    --glass: rgba(255,255,255,0.04);
+    --glass-2: rgba(255,255,255,0.02);
+    --accent: rgb(120,160,255);
+    --muted: #bdbddf;
+    --header-height: 70px;
+  }
+  html,body{
+    height:100%;
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #0f0f12 0%, var(--bg) 100%);
+    color: #fff;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  header{
+    position:fixed; top:0; left:0; right:0; height:var(--header-height);
+    display:flex; align-items:center; padding:0 20px;
+    backdrop-filter: blur(10px) saturate(140%);
+    background: linear-gradient(180deg, var(--glass), var(--glass-2));
+    border-bottom:1px solid rgba(255,255,255,0.03);
+    z-index:1000;
+    border-radius:0;
+  }
+  .branding{ font-weight:700; letter-spacing:.6px; color:#fff; }
+
+  main{
+    min-height:calc(100vh - var(--header-height));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:calc(var(--header-height) + 40px) 20px 40px;
+  }
+
+  .panel{
+    width:100%;
+    max-width:920px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+    border-radius:16px;
+    padding:40px;
+    text-align:center;
+    color:#fff;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border:1px solid rgba(255,255,255,0.07);
+    backdrop-filter: blur(10px) saturate(150%);
+  }
+
+  h1{
+    font-size:72px;
+    margin:0 0 8px 0;
+    line-height:1;
+  }
+  p.lead{
+    color:var(--muted);
+    font-size:18px;
+    margin:0 0 20px 0;
+  }
+
+  .actions{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    margin-top:20px;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    display:inline-block;
+    padding:12px 18px;
+    border-radius:999px;
+    background:var(--accent);
+    color:#071028;
+    font-weight:700;
+    text-decoration:none;
+    box-shadow: 0 8px 24px rgba(18,36,80,0.35);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .btn:hover{ transform: translateY(-3px); box-shadow:0 12px 30px rgba(18,36,80,0.4); }
+
+  .btn--ghost{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.06);
+    color:var(--muted);
+  }
+
+  .small{
+    margin-top:14px;
+    color: rgba(255,255,255,0.6);
+    font-size:14px;
+  }
+
+  footer{ margin-top:18px; color:rgba(255,255,255,0.5); font-size:13px; }
+  @media (max-width:560px){
+    h1{ font-size:44px; }
+    .panel{ padding:24px; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="branding">ArSiJa</div>
+  </header>
+
+  <main>
+    <div class="panel" role="main" aria-labelledby="title">
+      <h1 id="title">404</h1>
+      <p class="lead">Oops — the page you’re looking for could not be found.</p>
+
+      <p class="small">The page may have been moved or the link might be incorrect. Don’t worry — here are a few options:</p>
+
+      <div class="actions">
+        <a class="btn" href="/index.html">Go to homepage</a>
+        <a class="btn btn--ghost" href="/Contact/index.html">Contact</a>
+        <a id="backBtn" class="btn btn--ghost" href="#" onclick="history.back(); return false;">Go back</a>
+      </div>
+
+      <footer>If the problem persists, feel free Contact me.</footer>
+    </div>
+  </main>
+
+  <script>
+    (function(){
+    })();
+  </script>
+</body>
+</html>
