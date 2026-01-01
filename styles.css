@@ -84,6 +84,25 @@ div, section, article, .card, .container-row, .container-white {
     box-sizing: border-box;
 }
 
+/* Container für Videos */
+.container-white iframe {
+    width: 100%;               /* volle Breite des Containers */
+    height: auto;              /* Höhe passt sich proportional an */
+    aspect-ratio: 16 / 9;      /* fixes Seitenverhältnis (YouTube Standard) */
+    border-radius: 16px;       /* abgerundete Ecken wie Container */
+}
+
+/* Optional: etwas Padding für das Video */
+.container-white {
+    padding: 16px;             /* reduziert, damit Videos besser reinpassen */
+    display: flex;
+    flex-direction: column;    /* Inhalte untereinander */
+    align-items: center;       /* Zentrierung des Inhalts */
+}
+
+/* YouTube-Steuerelemente aktivieren: einfach die URL im HTML anpassen */
+
+
 
 
 
