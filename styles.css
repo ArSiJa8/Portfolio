@@ -572,3 +572,37 @@ a{
     }
 
 }
+
+
+/* SCROLL REVEAL - Add near the end of your styles.css */
+
+/* initial state for revealable elements */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 640ms cubic-bezier(.2,.9,.2,1),
+    transform 640ms cubic-bezier(.2,.9,.2,1);
+  will-change: opacity, transform;
+  /* don't create stacking context problems */
+  z-index: 0;
+}
+
+/* visible state when element is in viewport */
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* optional smaller motion for tiny items (e.g. buttons) */
+.reveal--subtle {
+  transform: translateY(12px);
+  transition-duration: 520ms;
+}
+
+/* helper: hide very small flicker on load for browsers without JS */
+.no-js .reveal { opacity: 1; transform: none; transition: none; }
+
+/* you can control the per-item delay with inline style or data-delay attribute
+   e.g. <div class="container-white" style="transition-delay:120ms"> ... </div>
+   JS below will also add a small default stagger automatically. */
