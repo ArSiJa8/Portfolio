@@ -1,12 +1,23 @@
-const Hamburger = document.querySelector('.hamburger');
-const NavMenu = document.querySelector('.nav-menu');
+// script.js
+// Sicherstellen, dass DOM vorhanden ist (zusätzlich zu defer)
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
 
-Hamburger.addEventListener('click', () => {
-    Hamburger.classList.toggle('active');
-    NavMenu.classList.toggle('active');
+  if (!hamburger || !navMenu) {
+    console.warn('Hamburger oder nav-menu wurde nicht gefunden. Elemente fehlen im DOM.');
+    return;
+  }
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.nav-link').forEach(n =>
+    n.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    })
+  );
 });
-
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    Hamburger.classList.remove('active');
-    NavMenu.classList.remove('active');
-}
