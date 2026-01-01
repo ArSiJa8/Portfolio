@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArSiJa | Portfolio</title>
+<link rel="stylesheet" href="/styles.css">
+<style>
+/* ===============================
+   HERO BACKGROUND
+   =============================== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+.center-screen {
+    position: relative;
+    width: 100vw;     
+    height: 100vh;    
+    background-image: url('/src/imgs/hero-background-placeholder.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;         
+    padding: 0;       
+    overflow: hidden;  
+}
+
+
+.center-screen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 1;
+}
+
+/* Card über dem Bild */
+.center-screen .card {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.1); 
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.center-screen .card h1 {
+    font-size: 70px;
+    margin: 0 0 20px 0;
+}
+
+.center-screen .card p {
+    font-size: 24px;
+    margin: 0;
+}
+</style>
+</head>
+<body>
+
+<div class="center-screen">
+    <div class="card">
+        <h1>ArSiJa</h1>
+        <p>Blender Animations & Thumbnail Creation</p>
+    </div>
+</div>
+
+
+
+
+<!-- MAIN CONTENT AREA -->
+<div>
+    <section>
+        <h2>Welcome to My Portfolio</h2>
+        <p>This is where I showcase my work in Blender animations and thumbnail creation.</p>
+    </section>
+
+</div>
+
+<div class="container-white">
+    <section>
+        <h2>About Me</h2>
+        <p>I am passionate about creating stunning visuals and engaging 
+            animations using Blender. 
+            My goal is to bring ideas to life through
+             creative design and technical expertise.
+            I also like coding, on the beginning, i only wrote java 
+            for some Minecraft Mods, but now I'm learning more advanced 
+            programming languages like HTML, CSS, Python and Javascript</p>
+    </section>
+</div>
+
+
+</body>
+</html>
