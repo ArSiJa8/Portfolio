@@ -2,43 +2,44 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* horizontal scroll verhindern */
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
 
 div, section, article, .card, .container-row, .container-white {
-    max-width: 100vw; /* maximal so breit wie der Viewport */
-    box-sizing: border-box; /* sicherstellen, dass Padding nicht die Breite überschreitet */
+    max-width: 100vw; 
+    box-sizing: border-box; 
+    
 }
 
 
 /* =========================================================
-   PORTFOLIO CSS – KONFIGURATIONSMENÜ
+   PORTFOLIO CSS –Configuration
    Theme: Dark / Clean / Centered / Apple-like
    ========================================================= */
 
 /*=========================================================
     AUTOR: ArSiJa
     VERSION: 1.0
-    LETZTES UPDATE: 2025-12-31
+    LAST EDIT: 2026-01-02
 
 ========================================================*/
 
 /*========================================================
-    Variablen
+    Variables
     ========================================================*/
 
 :root{
 
-/* Farben */
+/* Colours */
     --black : rgb(27, 27, 30);
     --white : rgb(226, 225, 255);
 
-/* Schriftarten */
+/* Fonts */
     --font-primary : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-/* Abstände */
+/* Gaps */
     --padding-section : 40px 20px;
     --margin-container : 20px;
 
@@ -49,26 +50,26 @@ div, section, article, .card, .container-row, .container-white {
     --box-shadow-light : 0 8px 20px rgba(0, 0, 0, 0.35);
     --box-shadow-dark : 0 20px 40px rgba(0, 0, 0, 0.4);
 
-/* Transitionen */
+/* Transitions */
     --transition-fast : all 0.2s ease;
     --transition-medium : all 0.25s ease;
 
-/* Hover Effekte */
+/* Hover Effects */
     --hover-opacity : 0.85;
 
-/* Button Farben */
+/* Button Colours */
     --button-bg : rgb(120, 160, 255);
     --button-bg-hover : rgb(180, 200, 255);
 
 }
 
-/* Weißer Container im Apple-Stil */
+/* White Container with Apple Style */
 
 .container-row {
     display: flex;
-    flex-wrap: wrap;            /* Zeilenumbruch bei kleinen Bildschirmen */
-    gap: 20px;                  /* Abstand zwischen Boxen */
-    padding: 20px;              /* Abstand zum Rand */
+    flex-wrap: wrap;         
+    gap: 20px;               
+    padding: 20px;            
 }
 
 .container-white {
@@ -79,28 +80,27 @@ div, section, article, .card, .container-row, .container-white {
     border: 1px solid rgba(0,0,0,0.08);
     box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 16px 32px rgba(9, 9, 10, 0.06);
 
-    flex: 1 1 0;                /* dynamische Breite */
-    min-width: 200px;           /* Minimum, damit die Box nicht zu klein wird */
+    flex: 1 1 0;            
+    min-width: 200px;          
     box-sizing: border-box;
 }
 
-/* Container für Videos */
+/* Container for Videos */
 .container-white iframe {
-    width: 100%;               /* volle Breite des Containers */
-    height: auto;              /* Höhe passt sich proportional an */
-    aspect-ratio: 16 / 9;      /* fixes Seitenverhältnis (YouTube Standard) */
-    border-radius: 16px;       /* abgerundete Ecken wie Container */
+    width: 100%;            
+    height: auto;         
+    aspect-ratio: 16 / 9;    
+    border-radius: 16px;      
 }
 
-/* Optional: etwas Padding für das Video */
+
 .container-white {
-    padding: 16px;             /* reduziert, damit Videos besser reinpassen */
+    padding: 16px;            
     display: flex;
-    flex-direction: column;    /* Inhalte untereinander */
-    align-items: center;       /* Zentrierung des Inhalts */
+    flex-direction: column;  
+    align-items: center;      
 }
 
-/* YouTube-Steuerelemente aktivieren: einfach die URL im HTML anpassen */
 
 
 
@@ -261,7 +261,7 @@ li{
 
     border: 1px solid rgba(255,255,255,0.18);
 
-    /* 🔥 Apple Motion */
+    /*  Apple Motion */
     animation: cardFloatIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 
     transition:
@@ -275,10 +275,10 @@ li{
     inset: 0;
 
     display: flex;
-    justify-content: stretch;   /* ↔ volle Breite */
-    align-items: center;        /* ↕ exakt vertikal zentriert */
+    justify-content: stretch; 
+    align-items: center;       
 
-    padding-block: clamp(16px, 4vh, 48px); /* 🍏 weicher Rand oben & unten */
+    padding-block: clamp(16px, 4vh, 48px); 
 
     z-index: 10;
 }
@@ -289,8 +289,8 @@ li{
     align-items: center;
     width: 100%;
     height: 100%;
-    margin: 0;   /* keine unerwarteten Verschiebungen */
-    padding: 0;  /* keine Padding-bedingten Verschiebungen */
+    margin: 0;   
+    padding: 0; 
 }
 
 
@@ -405,8 +405,8 @@ select:focus{
 
 table {
     width: 100%;
-    border-collapse: separate; /* wichtig für border-spacing */
-    border-spacing: 8px;       /* Abstand zwischen Zellen */
+    border-collapse: separate; 
+    border-spacing: 8px;      
     margin: 20px auto;
     border-radius: 20px;
     overflow: hidden;
@@ -540,7 +540,6 @@ a{
         display: block;
     }
 
-    /* Fix: vorher fehlte der führende Punkt (.) — jetzt korrekt */
     .hamburger.active .bar:nth-child(1){
         transform: translateY(8px) rotate(45deg);
     }
@@ -576,7 +575,6 @@ a{
 
 /* SCROLL REVEAL - Add near the end of your styles.css */
 
-/* initial state for revealable elements */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -584,7 +582,6 @@ a{
     opacity 640ms cubic-bezier(.2,.9,.2,1),
     transform 640ms cubic-bezier(.2,.9,.2,1);
   will-change: opacity, transform;
-  /* don't create stacking context problems */
   z-index: 0;
 }
 
@@ -594,15 +591,10 @@ a{
   transform: translateY(0);
 }
 
-/* optional smaller motion for tiny items (e.g. buttons) */
 .reveal--subtle {
   transform: translateY(12px);
   transition-duration: 520ms;
 }
 
-/* helper: hide very small flicker on load for browsers without JS */
 .no-js .reveal { opacity: 1; transform: none; transition: none; }
-
-/* you can control the per-item delay with inline style or data-delay attribute
-   e.g. <div class="container-white" style="transition-delay:120ms"> ... </div>
-   JS below will also add a small default stagger automatically. */
+/* end of scroll reveal styles */

@@ -24,9 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.warn('Hamburger oder nav-menu nicht gefunden.');
   }
 
-  // ---------- Scroll Reveal ----------
-  // Selectors for block elements you want animated when scrolled into view.
-  // Tweak this list to add/remove elements.
+  // ---------- Scroll Reveal ----------s
   const revealSelectors = [
     '.center-screen .card',
     'section',
@@ -35,17 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
   ].join(',');
 
   const elements = Array.from(document.querySelectorAll(revealSelectors))
-    // filter invisible or tiny items if you want: keep all for now
     .filter(Boolean);
 
-  // If no elements, nothing to do
   if (elements.length === 0) return;
 
-  // Add .reveal class and a small stagger delay (so items don't all fly in at once)
   elements.forEach((el, idx) => {
     // don't overwrite explicit inline transition-delay if present
     if (!el.style.transitionDelay && !el.dataset.delay) {
-      // stagger within small window, reset per 10 items to avoid huge delays
       const delayMs = (idx % 10) * 60; // 0,60,120,...,540ms
       el.style.transitionDelay = `${delayMs}ms`;
     } else if (el.dataset.delay && !el.style.transitionDelay) {
@@ -66,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         const target = entry.target;
         target.classList.add('in-view');
-        // If you want to keep reveal when scrolled out, skip unobserve
+      
         observer.unobserve(target);
       }
     });
@@ -77,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver(revealCallback, ioOptions);
     elements.forEach(el => observer.observe(el));
   } else {
-    // Fallback: simple on-scroll check (less efficient)
+    // Fallback: simple on-scroll check
     const onScroll = () => {
       const viewportHeight = window.innerHeight;
       elements.forEach(el => {
