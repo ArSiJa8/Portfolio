@@ -231,6 +231,12 @@ section { padding: 60px 20px; border-radius: var(--border-radius); }
     margin: 20px;
 }
 
+.container-white h1,
+.container-white h2,
+.container-white h3 {
+    color: #1d1d1f;
+}
+
 /* =========================================================
    6. FOOTER (Flexible Layout)
    ========================================================= */
