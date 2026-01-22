@@ -456,14 +456,34 @@ img, video{
    FOOTER
    ========================================================= */
 
-footer{
-    text-align: center;
-    padding: 20px;
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: rgb(150, 150, 150);
 }
 
-footer a{
-    color: rgb(120, 160, 255);
+.footer-socials {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-socials a {
+    color: rgb(150, 150, 150);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #fff;
+}
+
+.footer-copyright {
+    text-align: right;
 }
 
 
