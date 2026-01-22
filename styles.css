@@ -233,8 +233,13 @@ section { padding: 60px 20px; border-radius: var(--border-radius); }
 
 .container-white h1,
 .container-white h2,
-.container-white h3 {
-    color: #1d1d1f;
+.container-white h3,
+.container-white p,
+.container-white li,
+.container-white span,
+.container-white strong,
+.container-white em {
+    color: #1d1d1f !important;
 }
 
 /* =========================================================
