@@ -505,31 +505,23 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 32px;
-    mix-blend-mode: difference;
-}
-
-.nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
 }
 
 .nav-branding {
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -0.5px;
-    background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
+    mix-blend-mode: difference;
 }
 
 .nav-link {
     font-size: 0.95rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.7);
+    color: #fff;
     transition: all 0.3s ease;
     position: relative;
+    mix-blend-mode: difference;
 }
 
 .nav-link::after {
