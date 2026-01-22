@@ -471,105 +471,147 @@ footer a{
    HEADER/HAMBURGER MENU
    ========================================================= */
 
-   *{
-    padding: 0%;
-    margin: 0%;
-    box-sizing: border-box;
-   }
-
-   header{
-    background-color: var(--black);
-   }
-
-   li{
-    list-style: none;
+header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-a{
-    color: var(--white);
-    text-decoration: none;
+header:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
-.navbar{
+nav {
     min-height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 24px;
-
+    padding: 0 32px;
 }
 
-.nav-menu{
+.nav-menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 60px;
-
+    gap: 40px;
 }
 
-.nav-branding{
-    font-size: 2rem;
+.nav-branding {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.nav-link{
-    transition: 0.7s ease;
+.nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-.nav-link-hover{
-    color:dodgerblue
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s ease;
+    border-radius: 2px;
 }
 
-.hamburger{
+.nav-link:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.hamburger {
     display: none;
     cursor: pointer;
 }
 
-.bar{
+.bar {
     display: block;
     width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: var(--white);
-
+    height: 2px;
+    margin: 6px auto;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    border-radius: 2px;
 }
 
-@media (max-width: 768px){
-    .hamburger{
+@media (max-width: 768px) {
+    header {
+        top: 10px;
+        width: calc(100% - 20px);
+    }
+
+    .hamburger {
         display: block;
     }
 
-    .hamburger.active .bar:nth-child(1){
+    .hamburger.active .bar:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
-    .hamburger.active .bar:nth-child(2){
+
+    .hamburger.active .bar:nth-child(2) {
         opacity: 0;
     }
-    .hamburger.active .bar:nth-child(3){
+
+    .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    .nav-menu{
-        position: fixed;
-        left: -100%;
-        top: 70px;
+    .nav-menu {
+        position: absolute;
+        left: 0;
+        top: calc(100% + 10px);
         gap: 0;
         flex-direction: column;
-        background-color: var(--black);
+        background: rgba(20, 20, 20, 0.9);
+        backdrop-filter: blur(20px);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 20px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
     }
 
-    .nav-item{
-        margin: 16px 0;
+    .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 
-    .nav-menu.active{
-        left: 0;
+    .nav-item {
+        margin: 12px 0;
     }
-
 }
 
 
