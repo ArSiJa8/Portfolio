@@ -11,16 +11,16 @@
     --white: rgb(226, 225, 255);
     --accent: rgb(120, 160, 255);
     --accent-hover: rgb(180, 200, 255);
-    
+
     /* Glassmorphism Defaults */
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     --glass-blur: blur(20px) saturate(180%);
-    
+
     /* Typography */
     --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
+
     /* Layout */
     --border-radius: 24px;
     --transition-smooth: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -38,9 +38,6 @@
 
 html, body {
     height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
@@ -50,15 +47,20 @@ body {
     font-family: var(--font-primary);
     color: white;
     line-height: 1.6;
-    flex: 1 0 auto;
 }
 
-/* Ensure content pushes footer down */
-.page-wrapper {
-    flex: 1 0 auto;
-}
+/* =========================================================
+   2. TYPOGRAPHY
+   ========================================================= */
 
-/* ... existing code ... */
+h1, h2, h3 { text-align: center; }
+h1 { color: var(--white); font-weight: bold; }
+h2 { color: white; font-weight: 600; }
+h3 { color: rgb(200, 200, 230); }
+
+p { text-align: center; color: white; }
+a { color: var(--accent); text-decoration: none; transition: var(--transition-smooth); }
+a:hover { opacity: 0.85; }
 
 /* =========================================================
    3. HEADER & NAVIGATION (Liquid Glass)
@@ -79,6 +81,15 @@ header {
     border-radius: var(--border-radius);
     box-shadow: var(--glass-shadow);
     transition: var(--transition-smooth);
+    pointer-events: none; /* Allow scrolling through header */
+}
+
+header > * { pointer-events: auto; } /* Re-enable clicks for content */
+
+header:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 nav {
@@ -87,14 +98,16 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 32px;
+    mix-blend-mode: difference; /* Dynamic text color adaptation */
 }
 
 .nav-branding {
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -0.5px;
-    color: #fff;
-    text-decoration: none;
+    background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .nav-menu {
@@ -108,7 +121,6 @@ nav {
     font-weight: 500;
     color: rgba(255, 255, 255, 0.7);
     position: relative;
-    text-decoration: none;
 }
 
 .nav-link::after {
@@ -127,96 +139,135 @@ nav {
 .nav-link:hover::after { width: 100%; }
 
 /* =========================================================
-   4. HAMBURGER MENU (Professional & Clean)
+   4. HAMBURGER MENU (Improved)
    ========================================================= */
 
 .hamburger {
     display: none;
     cursor: pointer;
     z-index: 1001;
-    width: 30px;
-    height: 20px;
-    position: relative;
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    justify-content: space-between;
-    transition: var(--transition-smooth);
+    padding: 10px;
+    border-radius: 12px;
+    transition: background 0.3s ease;
 }
+
+.hamburger:hover { background: rgba(255, 255, 255, 0.1); }
 
 .bar {
     display: block;
-    width: 100%;
+    width: 25px;
     height: 2px;
+    margin: 6px 0;
+    transition: var(--transition-smooth);
     background-color: #fff;
-    border-radius: 4px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
 }
 
 /* Hamburger Animations */
-.hamburger.active .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-}
-
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-    transform: translateX(10px);
-}
-
-.hamburger.active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-}
+.hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.active .bar:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+.hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
+    .hamburger { display: block; }
 
     .nav-menu {
         position: fixed;
-        left: 0;
-        top: 0;
-        height: 100vh;
-        width: 100%;
+        left: 50%;
+        top: 100px;
+        transform: translateX(-50%) scale(0.95);
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: rgba(10, 10, 12, 0.98);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        gap: 30px;
-        z-index: 1000;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        width: calc(100% - 40px);
+        max-width: 400px;
+        padding: 40px 0;
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
         opacity: 0;
         visibility: hidden;
-        transition: all 0.4s ease-in-out;
-        transform: scale(1.1);
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        gap: 20px;
+        text-align: center;
     }
 
     .nav-menu.active {
         opacity: 1;
         visibility: visible;
-        transform: scale(1);
+        transform: translateX(-50%) scale(1);
+    }
+
+    .nav-item {
+        width: 100%;
+        margin: 0;
     }
 
     .nav-link {
-        font-size: 1.5rem;
+        display: block;
+        padding: 10px 0;
+        font-size: 1.2rem;
     }
 }
 
 /* =========================================================
-   6. FOOTER (Sticky Fix)
+   5. LAYOUT COMPONENTS (Cards, Sections)
+   ========================================================= */
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    transition: var(--transition-smooth);
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.015);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+section { padding: 60px 20px; border-radius: var(--border-radius); }
+
+.container-white {
+    background-color: #e7e6f7;
+    color: #1d1d1f;
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.container-white h1,
+.container-white h2,
+.container-white h3,
+.container-white p,
+.container-white li,
+.container-white span,
+.container-white strong,
+.container-white em {
+    color: #1d1d1f !important;
+}
+
+/* =========================================================
+   6. FOOTER (Flexible Layout)
    ========================================================= */
 
 footer {
-    flex-shrink: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 40px 60px;
-    background: #0a0a0c;
+    background: #0a0a0c; /* Solid dark background for maximum contrast */
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     flex-wrap: wrap;
     gap: 30px;
-    width: 100%;
 }
 
 .footer-copyright {
