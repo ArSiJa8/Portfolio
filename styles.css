@@ -38,6 +38,9 @@
 
 html, body {
     height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
@@ -47,6 +50,11 @@ body {
     font-family: var(--font-primary);
     color: white;
     line-height: 1.6;
+}
+
+.page-wrapper {
+    flex: 1 0 auto;
+    width: 100%;
 }
 
 /* =========================================================
@@ -233,11 +241,14 @@ nav {
 section { padding: 60px 20px; border-radius: var(--border-radius); }
 
 .container-white {
-    background-color: #e7e6f7;
+    background: rgba(231, 230, 247, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     color: #1d1d1f;
     padding: 32px;
     border-radius: 20px;
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -260,6 +271,7 @@ section { padding: 60px 20px; border-radius: var(--border-radius); }
    ========================================================= */
 
 footer {
+    flex-shrink: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -268,6 +280,7 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     flex-wrap: wrap;
     gap: 30px;
+    width: 100%;
 }
 
 .footer-copyright {
