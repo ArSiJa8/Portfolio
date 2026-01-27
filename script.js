@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const isActive = hamburger.classList.toggle('active');
       navMenu.classList.toggle('active');
       hamburger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      // Prevent scrolling when menu is open
+      document.body.style.overflow = isActive ? "hidden" : "auto";
     });
 
     navLinks.forEach(n =>
@@ -18,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
         hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = "auto";
       })
     );
   } else {
