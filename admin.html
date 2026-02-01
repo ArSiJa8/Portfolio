@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .admin-section { padding: 20px; background: white; margin: 20px; border-radius: 10px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="nav-branding">ArSiJa</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="admin-section">
+        <h1>Admin Dashboard</h1>
+        <p>Total Users: {{ total_users }} | Total Clicks: {{ total_clicks }}</p>
+        
+        <h2>Users (IP & Clicks)</h2>
+        <table>
+            <tr><th>IP</th><th>Clicks</th></tr>
+            {% for user in users %}
+            <tr><td>{{ user.ip }}</td><td>{{ user.clicks }}</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="admin-section">
+        <h2>Add Project</h2>
+        <form action="/admin/add_project" method="post">
+            <input type="text" name="title" placeholder="Title" required><br>
+            <input type="text" name="short_description" placeholder="Short Description"><br>
+            <input type="text" name="image_url" placeholder="Image URL"><br>
+            <textarea name="long_text" placeholder="Full Description (Markdown supported)"></textarea><br>
+            <input type="submit" value="Add Project">
+        </form>
+    </div>
+
+    <footer style="border-radius: 0%;">
+        <div class="footer-copyright">
+            <p>&copy; 2026 ArSiJa. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

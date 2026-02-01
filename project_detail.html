@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ project.title }} | ArSiJa</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="nav-branding">ArSiJa</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/About" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="/Contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="/Projects" class="nav-link">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container-white" style="margin-top: 100px;">
+        <h1>{{ project.title }}</h1>
+        <div class="project-image">
+            <img src="{{ project.image_url }}" alt="{{ project.title }}">
+        </div>
+        <div class="markdown-content">
+            {{ content|safe }}
+        </div>
+    </div>
+
+    <footer style="border-radius: 0%;">
+        <div class="footer-copyright">
+            <p>&copy; 2026 ArSiJa. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

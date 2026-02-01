@@ -131,32 +131,23 @@ body {
 <div>
     <section>
         <h1>My Projects</h1>
+        <div id="projects-container">
+        {% for project in projects %}
         <div class="container-white">
-        <h2 style="font-size: 30px;">Placeholder 1</h2>
-        <div class="project-image">
-            <img src="https://picsum.photos/1280/720" alt="Project 1" loading="lazy">
+            <h2 style="font-size: 30px;"><a href="/projects/{{ project.slug }}" style="text-decoration: none; color: inherit;">{{ project.title }}</a></h2>
+            <p>{{ project.short_description }}</p>
+            <div class="project-image">
+                <img src="{{ project.image_url }}" alt="{{ project.title }}" loading="lazy">
+            </div>
         </div>
-        </div>
-                
+        {% else %}
         <div class="container-white">
-        <h2 style="font-size: 30px;">Placeholder 2</h2>
-        <div class="project-image">
-            <img src="https://picsum.photos/1280/720?random=1" alt="Project 2" loading="lazy">
+            <h2 style="font-size: 30px;">Placeholder 1</h2>
+            <div class="project-image">
+                <img src="https://picsum.photos/1280/720" alt="Project 1" loading="lazy">
+            </div>
         </div>
-        </div>
-
-        <div class="container-white">
-        <h2 style="font-size: 30px;">Placeholder 3</h2>
-        <div class="project-image">
-            <img src="https://picsum.photos/1280/720?random=2" alt="Project 3" loading="lazy">
-        </div>
-        </div>
-
-        <div class="container-white">
-        <h2 style="font-size: 30px;">Placeholder 4</h2>
-        <div class="project-image">
-            <img src="https://picsum.photos/1280/720?random=3" alt="Project 4" loading="lazy">
-        </div>
+        {% endfor %}
         </div>
 
         </div>
