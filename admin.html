@@ -5,9 +5,40 @@
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="/styles.css">
     <style>
-        .admin-section { padding: 20px; background: white; margin: 20px; border-radius: 10px; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .admin-section { 
+            padding: 40px; 
+            background: var(--glass-bg); 
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            margin: 100px auto 40px; 
+            border-radius: var(--border-radius); 
+            border: 1px solid var(--glass-border);
+            max-width: 1000px;
+            color: var(--white);
+        }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid var(--glass-border); padding: 12px; text-align: left; color: var(--white); }
+        th { background: rgba(255,255,255,0.05); }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-family: var(--font-primary);
+        }
+        input[type="submit"] {
+            background: var(--accent);
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition-smooth);
+        }
+        input[type="submit"]:hover {
+            background: var(--accent-hover);
+        }
     </style>
 </head>
 <body>
